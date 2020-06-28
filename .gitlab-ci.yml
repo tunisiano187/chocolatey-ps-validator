@@ -6,7 +6,7 @@
     - git config --global user.name $GITLAB_USER_LOGIN
   script:
     - Write-Host "Setup module"
-    - ./Setup.ps1
+    - ./Update_script.ps1
   after_script:
     - md upload
     - Get-ChildItem -Path ./ -Include *.nupkg -Recurse -File | Move-Item -Destination ./upload/

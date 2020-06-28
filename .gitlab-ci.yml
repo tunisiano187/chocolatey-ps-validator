@@ -1,7 +1,7 @@
  build_image:
   before_script:
     - Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
-    - git remote set-url origin https://tunisiano187:${Github_api}@github.com/tunisiano187/chocolatey-ps-validator.git
+    - git remote set-url origin https://tunisiano187:${Gitlab_api}@gitlab.com/chocolatey-packages/tools/chocolatey-ps-validator.git
     - git config --global user.email $GITLAB_USER_EMAIL
     - git config --global user.name $GITLAB_USER_LOGIN
   script:

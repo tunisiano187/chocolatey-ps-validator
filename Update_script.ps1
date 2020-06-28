@@ -1,6 +1,7 @@
 # Define default settings for the manifest
 $moduleSettings = @{
     ModuleVersion = '0.0.1'
+    GUID = '45083ee3-0a28-4757-9fc7-b3e58687beea'
     Author = 'tunisiano'
     CompanyName = 'None'
     Copyright = '@tunisiano187'

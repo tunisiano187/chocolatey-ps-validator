@@ -16,5 +16,5 @@ $moduleSettings = @{
     HelpInfoURI = 'https://gitter.im/Tunisiano18/community?utm_source=share-link&utm_medium=link&utm_campaign=share-link'
 }
 
-New-ModuleManifest @moduleSettings -Path './chocolatey-ps-validator.psd1'
+New-ModuleManifest @moduleSettings -Path './Validator/chocolatey-ps-validator.psd1'
 

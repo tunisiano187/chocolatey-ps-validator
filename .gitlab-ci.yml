@@ -8,9 +8,8 @@
     - Write-Host "Setup module"
     - ./Update_script.ps1
   after_script:
-    - md upload
-    - Get-ChildItem -Path ./ -Include *.nupkg -Recurse -File | Move-Item -Destination ./upload/
-    - Get-ChildItem -Path ./ -Include Update-AUPacakges.md -Recurse -File | Move-Item -Destination ./upload/
+    - Get-ChildItem -Path ./ -Include *.nupkg -Recurse -File | Move-Item -Destination ./upload/ -Force
+    - Get-ChildItem -Path ./ -Include Update-AUPacakges.md -Recurse -File | Move-Item -Destination ./upload/ -Force
     - git checkout -B master
     - git add -u :/
     - git commit -m '[skip ci] commit from CI runner'

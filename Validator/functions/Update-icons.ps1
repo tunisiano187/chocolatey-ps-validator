@@ -1,4 +1,4 @@
-function Update-Images {
+function Update-Icons {
 <#
 .SYNOPSIS
   Check for image in the dedicated folder, download it from iconURL if missing, commit 
@@ -22,7 +22,10 @@ function Update-Images {
 .PARAMETER PackagesDirectory (Required)
   The relative path to where packages are located (relative to the location of the call)
 
-.PARAMETER TieCount (Optional)
+.PARAMETER Cacher (Optional)
+  Set the Caching website, currently ('githack', 'jsdelivr', 'staticaly')
+
+.PARAMETER TimeCount (Optional)
   Count the execution time of the function
 
 .PARAMETER Quiet (Optional)
@@ -49,11 +52,11 @@ function Update-Images {
   (png, svg, jpg, ico)
 
 .EXAMPLE (Getting informations from the git)
-  ps> .\Update-Images.ps1
+  ps> .\Update-Icons.ps1
   Updates all nuspec files with matching icons
 
 .EXAMPLE (Getting informations from )
-  ps> .\Update-Images.ps1 -Name 'SQLite'
+  ps> .\Update-Icons.ps1 -Name 'SQLite'
   Updates only a single nuspec file with the specified name with its matching icon
 
 .EXAMPLE
@@ -93,7 +96,7 @@ function Update-Images {
     [Parameter(Mandatory=$true)]
     [string]$PackagesDirectory = "../automatic",
     [ValidateSet('githack', 'jsdelivr', 'staticaly')]
-    [string]$template = 'staticaly',
+    [string]$cacher = 'staticaly',
     [switch]$TimeCount,
     [switch]$Quiet,
     [switch]$ShowIconNotFound,

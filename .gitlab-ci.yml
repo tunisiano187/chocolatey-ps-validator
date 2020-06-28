@@ -1,0 +1,25 @@
+ build_image:
+  before_script:
+    - Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+    - git remote set-url origin https://tunisiano187:${Github_api}@github.com/tunisiano187/chocolatey-ps-validator.git
+    - git config --global user.email $GITLAB_USER_EMAIL
+    - git config --global user.name $GITLAB_USER_LOGIN
+  script:
+    - Write-Host "Setup module"
+    - ./Setup.ps1
+  after_script:
+    - md upload
+    - Get-ChildItem -Path ./ -Include *.nupkg -Recurse -File | Move-Item -Destination ./upload/
+    - Get-ChildItem -Path ./ -Include Update-AUPacakges.md -Recurse -File | Move-Item -Destination ./upload/
+    - Move-Item au/update_info.xml -Destination ./upload/
+    - git checkout -B master
+    - git add -u :/
+    - git commit -m '[skip ci] commit from CI runner'
+    - git push --follow-tags origin master
+  artifacts:
+    paths:
+        - upload/
+    expire_in: 1 week
+  tags:
+    - shared-windows
+    - windows

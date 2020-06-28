@@ -13,6 +13,8 @@ ForEach ($folder in $functionFolders)
             Write-Verbose -Message "  Importing $($function.BaseName)"
             . $function.FullName
         }
+    } else {
+        Write-Error "Missing Folder : $folder"
     }
 }
 $publicFunctions = (Get-ChildItem -Path "$PSScriptRoot\functions" -Filter '*.ps1').BaseName

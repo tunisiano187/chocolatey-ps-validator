@@ -10,7 +10,6 @@ $moduleSettings = @{
     PrivateData = @{
         PSData = @{
             ProjectUri = 'https://github.com/tunisiano187/chocolatey-ps-validator'
-            RequireLicenseAcceptance = $false
         }
     }
     HelpInfoURI = 'https://gitter.im/Tunisiano18/community?utm_source=share-link&utm_medium=link&utm_campaign=share-link'
